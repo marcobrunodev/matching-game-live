@@ -1,0 +1,44 @@
+.ness-border {
+  --border-size: 2px;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+
+  &.-big {
+    --border-size: 4px;
+  }
+
+  &::before,
+  &::after,
+  & *:first-child::before,
+  & *:first-child::after {
+    content: "";
+    display: block;
+    width: var(--border-size);
+    height: var(--border-size);
+    background-color: var(--background-app);
+    position: absolute;
+    z-index: 2;
+  }
+  &::before,
+  & *:first-child::before {
+    top: 0;
+  }
+  &::before {
+    left: 0;
+  }
+  & *:first-child::before {
+    right: 0;
+  }
+
+  &::after,
+  & *:first-child::after {
+    bottom: 0;
+  }
+  &::after {
+    left: 0;
+  }
+  & *:first-child::after {
+    right: 0;
+  }
+}
